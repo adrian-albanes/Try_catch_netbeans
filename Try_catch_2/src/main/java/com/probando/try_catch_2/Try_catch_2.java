@@ -42,15 +42,96 @@ StringIndexOutOfBoundsException: Lo lanzan los métodos de la clase String para 
  */
     public static void main(String[] args) {
         
-        int numero;
+       /* int numero;
         Scanner num = new Scanner (System.in);
         numero = num.nextInt();
         if (numero < 18) {
             throw new ArithmeticException("Acceso denegado, debe ser un número mayor que 18"); 
         } else {
             System.out.println("Correcto, ingrese a su sistema"); 
+        }*/
+       
+       //Ejercicio 1
+       try {
+            System.out.println("Mensaje mostrado por pantalla");
+            Exception e = new Exception("Esto es un objeto Exception");
+            throw e;
+        } catch (Exception ex) {
+            System.out.println("Excepcion capturada con mensaje: " + ex.getMessage());
         }
+        System.out.println("Programa terminado");
         
+        //Ejercicio 2
+         try {
+            System.out.println("Generando número aleatorio");
+            int entero = (int) (Math.random() * 1000);
+            if (entero % 2 == 0) {
+                throw new Exception("Se genero un numero par " + entero);
+            } else {
+                throw new Exception("Es impar " + entero);
+            }
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+         
+       //Ejercicio 3        
+    Scanner sc = new Scanner(System.in);
+        int x = 0, y = 0, z = 0, k = 0;
+        boolean repetir;
+        do {
+            repetir = false;
+            try {
+                System.out.print("Introduce primer número entero: ");
+                x = sc.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Valor no válido" + e.toString());                                             
+                sc.nextLine();
+                repetir = true;
+            }
+        } while (repetir);
+        do {
+            repetir = false;
+            try {
+                System.out.print("Introduce segundo número entero: ");
+                y = sc.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Valor no válido" + e.toString());
+                sc.nextLine();
+                repetir = true;
+            }
+        } while (repetir);
+        do {
+            repetir = false;
+            try {
+                System.out.print("Introduce tercer número entero: ");
+                z = sc.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Valor no válido" + e.toString());
+                sc.nextLine();
+                repetir = true;
+            }
+        } while (repetir);
+        do {
+            repetir = false;
+            try {
+                System.out.print("Introduce cuarto número entero: ");                                             
+                k = sc.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Valor no válido" + e.toString());
+                sc.nextLine();
+                repetir = true;
+            }
+        } while (repetir);
+        System.out.println("int introducido -> " + x);
+        System.out.println("int introducido -> " + y);
+        System.out.println("int introducido -> " + z);
+        System.out.println("int introducido -> " + k);
+         
+        
+        
+        
+        //Ejemplo
         int numero1, numero2, resultado;
         String st;
         boolean val = true;
@@ -65,7 +146,7 @@ StringIndexOutOfBoundsException: Lo lanzan los métodos de la clase String para 
             resultado = numero1/numero2;
             val = false;
         }catch (InputMismatchException e) {  //Para mostrar en pantalla que debe ingresar un número
-            System.out.println("No es un número");
+            System.err.println("No es un número");
             val = true;
         }catch(ArithmeticException ex){
             System.out.println("El valor no debe ser nulo");
@@ -76,11 +157,11 @@ StringIndexOutOfBoundsException: Lo lanzan los métodos de la clase String para 
         try {
             Scanner str = new Scanner(System.in);
             System.out.print("Ingrese una palabra: ");
-            st = str.next();
-            val = false;
+            st = str.nextLine();
+            val2 = false;
         }catch (NumberFormatException e) {  //Para mostrar en pantalla que debe ingresar un número
-            System.out.println("No es un número");
-            val = true;
+            System.err.println("No es una letra");
+            val2 = true;
         }
         }
          
@@ -89,8 +170,13 @@ StringIndexOutOfBoundsException: Lo lanzan los métodos de la clase String para 
         }catch (Exception e){
             //Bloque de códigos para manejar errores
         }
-        
-        
+        Scanner str = new Scanner(System.in);
+            System.out.print("Ingrese una palabra: ");
+            st = str.nextLine();
+          
+    
+            
+        /*
        
 Scanner input = new Scanner(System.in);
 int exampleInput = 0;
@@ -105,7 +191,7 @@ do {
     }
 } while (exampleInput < 1 || exampleInput > 25);
         System.out.println("Print exampleInput: " + exampleInput);
-        
+        */
     
     }    
     }
